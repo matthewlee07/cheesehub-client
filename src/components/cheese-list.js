@@ -1,11 +1,13 @@
 import React from 'react';
 
 export default function CheeseList(props){
+  
+
   return (
     <ul>
-      <li>
-        {props.sampleCheese}
-      </li>
+      {props.sampleCheese.map((cheese, idx) => (
+        <li key={idx}>{cheese}</li>
+      ))}
     </ul>
   )
 }
