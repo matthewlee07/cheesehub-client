@@ -1,10 +1,10 @@
-import {SERVER_URL} from '../config'
+import { SERVER_URL } from '../config';
 
 export const FETCH_CHEESES_REQUEST = 'FETCH_CHEESES_REQUEST';
 export const fetchCheesesRequest = () => ({
     type: FETCH_CHEESES_REQUEST,
     loading: true,
-   
+
 })
 
 export const FETCH_CHEESES_SUCCESS = 'FETCH_CHEESES_SUCCESS';
@@ -21,10 +21,10 @@ export const fetchCheesesError = (error) => ({
     loading: false,
     error
 })
-//async action
+
 export const fetchCheeses = () => (dispatch) => {
     dispatch(fetchCheesesRequest());
-    return fetch(`${SERVER_URL}/cheeses`)
+    return fetch(`${SERVER_URL}`)
         .then(res => {
             if (!res.ok) {
                 return dispatch(fetchCheesesError(res.statusText));

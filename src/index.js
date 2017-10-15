@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
-import registerServiceWorker from './registerServiceWorker';
 import CheeseList from './components/cheese-list'; 
+import registerServiceWorker from './registerServiceWorker';
+import store from './store'; // store references reducer, actions, and thunk
+import { Provider } from 'react-redux'; 
 
-const sampleCheese = [
-  "Bath Blue",
-  "Barkham Blue",
-  "Buxton Blue"
-];
-
-ReactDOM.render(<CheeseList sampleCheese={sampleCheese}/>, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <CheeseList />
+    </Provider>,
+    document.getElementById('root')
+);
 registerServiceWorker();
